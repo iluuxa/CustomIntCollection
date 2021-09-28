@@ -10,7 +10,7 @@ public class Main {
 
     /**
      * Основной метод класса {@link Main}
-     * @param args - аргументы командной строки. Не используются
+     * @param args аргументы командной строки. Не используются
      */
     public static void main(String[] args) {
         Collection a=new Collection();

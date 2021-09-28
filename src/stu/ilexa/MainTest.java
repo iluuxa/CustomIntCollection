@@ -8,8 +8,8 @@ class MainTest {
 
     @Test
     void getRandomInts() {
+        assert(Main.getRandomInts(0).length==0);
         assertEquals(new int[0],Main.getRandomInts(-1));
-        assertEquals(new int[0],Main.getRandomInts(0));
     }
 
 }
