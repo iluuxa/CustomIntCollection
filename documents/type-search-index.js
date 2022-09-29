@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"stu.ilexa","l":"Collection"},{"p":"stu.ilexa","l":"Main"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"stu.ilexa","l":"Entry"},{"p":"stu.ilexa","l":"EntryGraph"},{"p":"stu.ilexa","l":"FileParser"},{"p":"stu.ilexa","l":"Main"},{"p":"stu.ilexa","l":"TopicHandler"}];updateSearchResults();

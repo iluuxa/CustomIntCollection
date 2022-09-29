@@ -3,8 +3,6 @@ package stu.ilexa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.zip.CheckedOutputStream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollectionTest {
@@ -39,10 +37,13 @@ class CollectionTest {
     }
 
     @Test
-    public void deleteElement() {
+    public void deleteEmptyElements(){
         Collection collection = new Collection();
         collection.deleteElement(0);
         collection.deleteElement(1);
+    }
+    @Test
+    public void deleteElement() {
         base.deleteElement(5);
         base.deleteElement(2);
         base.deleteElement(0);
@@ -61,46 +62,65 @@ class CollectionTest {
     public void indexSearch() {
 
         assertEquals(Integer.MIN_VALUE, base.indexSearch(1));
-        assertEquals(1, base.indexSearch(3));
     }
 
     @Test
-    public void dataSearch() {
-        assertEquals(2, base.dataSearch(1));
-        assertEquals(-1,base.dataSearch(-2));
-        assertEquals(0,base.dataSearch(Integer.MAX_VALUE));
-        assertEquals(1,base.dataSearch(Integer.MIN_VALUE));
-        assertEquals(7,base.dataSearch(-1));
+    public void emptyCollectionDataSearch(){
         Collection collection = new Collection();
         assertEquals(-1, collection.dataSearch(0));
     }
+    public void noResultsDataSearch(){
+        assertEquals(-1,base.dataSearch(-2));
+    }
+    @Test
+    public void dataSearch() {
+        assertEquals(2, base.dataSearch(1));
+    }
 
     @Test
-    public void minSearch() {
-        assertEquals(Integer.MIN_VALUE,base.minSearch());
+    public void emptyCollectionMinSearch() {
         Collection collection = new Collection();
         assertEquals(Integer.MAX_VALUE, collection.minSearch());
     }
-
     @Test
-    public void maxSearch() {
-        assertEquals(Integer.MAX_VALUE,base.maxSearch());
-        Collection collection = new Collection();
-        assertEquals(Integer.MIN_VALUE, collection.maxSearch());
+    public void minSearch() {
+        assertEquals(Integer.MIN_VALUE,base.minSearch());
     }
 
     @Test
-    public void averageCount() {
-        assertEquals(11/8,base.averageCount());
+    public void emptyCollectionMaxSearch() {
+        Collection collection = new Collection();
+        assertEquals(Integer.MIN_VALUE, collection.maxSearch());
+    }
+    @Test
+    public void maxSearch() {
+        assertEquals(Integer.MAX_VALUE,base.maxSearch());
+    }
+
+    @Test
+    public void emptyCollectionAverageCount() {
         Collection collection = new Collection();
         assertEquals(0, collection.averageCount());
+    }
+    @Test
+    public void averageCount() {
+        assertEquals((double)(11/8),base.averageCount());
     }
 
     @Test
     public void getLength() {
         assertEquals(8, base.getLength());
+    }
+
+    @Test
+    public void getAddedLength() {
         base.addElement(1);
         assertEquals(9, base.getLength());
+    }
+
+    @Test
+    public void getSubtractedLength() {
+        base.addElement(1);
         base.deleteElement(0);
         base.deleteElement(0);
         assertEquals(7, base.getLength());
@@ -117,6 +137,9 @@ class CollectionTest {
                         "7\n" +
                         "-1"
                 , base.toMultilineString());
+    }
+    @Test
+    public void emptyCollectionToMultilineString(){
         Collection collection = new Collection();
         assertEquals("",collection.toMultilineString());
     }

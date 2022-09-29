@@ -7,9 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class MainTest {
 
     @Test
-    void getRandomInts() {
+    void getNoRandomInts() {
         assert(Main.getRandomInts(0).length==0);
-        assertEquals(new int[0],Main.getRandomInts(-1));
+    }
+    @Test
+    void getNegativeRandomInts(){
+        assert(Main.getRandomInts(-1).length==0);
+    }
+    @Test
+    void getRandomIntsLength(){
+        assert(Main.getRandomInts(5).length==5);
     }
 
 }
