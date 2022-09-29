@@ -42,51 +42,37 @@ public class Main {
         System.out.println("1 - Добавить элемент\n2 - Удалить элемент по индексу\n3 - Поиск по индексу\n4 - поиск по значению\n5 - найти минимальный элемент\n6 - найти максимальный элемент\n7 - Посчитать среднее арифметическое\n8 - Отобразить элементы\n9 - Добавить случайные элементы\n0 - Завершить работу");
         int sw=in.nextInt();
         while(sw!=0){
-            switch (sw){
-                case 1:
-                    a.addElement(in.nextInt());
-                    break;
-                case 2:
-                    a.deleteElement(in.nextInt());
-                    break;
-                case 3:
-                    temp=in.nextInt();
-                    if((temp<a.getLength())&&(temp>=0)){
-                        System.out.println("Значение элемента: "+a.indexSearch(temp));
-                    }
-                    else {
+            switch (sw) {
+                case 1 -> a.addElement(in.nextInt());
+                case 2 -> a.deleteElement(in.nextInt());
+                case 3 -> {
+                    temp = in.nextInt();
+                    if ((temp < a.getLength()) && (temp >= 0)) {
+                        System.out.println("Значение элемента: " + a.indexSearch(temp));
+                    } else {
                         System.out.println("Некорректный индекс");
                     }
-                    break;
-                case 4:
-                    temp=a.dataSearch(in.nextInt());
-                    if(temp!=-1){
-                        System.out.println("Индекс элемента: "+temp);
-                    }
-                    else {
+                }
+                case 4 -> {
+                    temp = a.dataSearch(in.nextInt());
+                    if (temp != -1) {
+                        System.out.println("Индекс элемента: " + temp);
+                    } else {
                         System.out.println("Нет элемента с этим значением");
                     }
-                    break;
-                case 5:
-                    System.out.println(a.minSearch());
-                    break;
-                case 6:
-                    System.out.println(a.maxSearch());
-                    break;
-                case 7:
-                    System.out.println("Среднее арифметическое: "+a.averageCount());
-                    break;
-                case 8:
-                    System.out.println(a.toMultilineString());
-                    break;
-                case 9:
+                }
+                case 5 -> System.out.println(a.minSearch());
+                case 6 -> System.out.println(a.maxSearch());
+                case 7 -> System.out.println("Среднее арифметическое: " + a.averageCount());
+                case 8 -> System.out.println(a.toMultilineString());
+                case 9 -> {
                     System.out.println("Введите количество случайно сгенерированных элементов:");
                     temp = in.nextInt();
                     int[] buff = getRandomInts(temp);
                     for (int i = 0; i < temp; i++) {
                         a.addElement(buff[i]);
                     }
-                    break;
+                }
             }
             System.out.println("Введите следующее действие: ");
             sw=in.nextInt();

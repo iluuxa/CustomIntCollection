@@ -1,7 +1,7 @@
 package stu.ilexa;
 
 /**
- * Класс, реализующий некоторые возможности коллекции в Java для переменных типа {@link int}
+ * Класс, реализующий некоторые возможности коллекции в Java для переменных типа int
  * @author Ясько Илья
  */
 public class Collection {
@@ -19,9 +19,7 @@ public class Collection {
      */
     public void addElement(int data) {
         int[] temp = new int[a.length + 1];
-        for (int i = 0; i < a.length; i++) {
-            temp[i] = a[i];
-        }
+        System.arraycopy(a, 0, temp, 0, a.length);
         temp[a.length] = data;
         a = temp;
     }
@@ -76,14 +74,14 @@ public class Collection {
 
     /**
      * Метод получения минимального значения коллекции. В случае, если коллекция пустая, метод возвращает максимальное возможное значение целочисленной переменной
-     * @return возвращает минимальный целочисленный элемент коллекции или максимальное значение типа {@link int}
+     * @return возвращает минимальный целочисленный элемент коллекции или максимальное значение типа int
      */
     public int minSearch() {
         int min = 0;
         boolean noMin = true;
-        for (int i = 0; i < a.length; i++) {
-            if ((a[i] < min) || (noMin)) {
-                min = a[i];
+        for (int j : a) {
+            if ((j < min) || (noMin)) {
+                min = j;
                 noMin = false;
             }
         }
@@ -93,14 +91,14 @@ public class Collection {
 
     /**
      * Метод возврата максимального элемента коллекции. В случае, если коллекция пустая, метод возвращает минимальное возможное значение целочисленной переменной
-     * @return возвращает максимальный целочисленный элемент коллекции или минимальное значение типа {@link int}
+     * @return возвращает максимальный целочисленный элемент коллекции или минимальное значение типа int
      */
     public int maxSearch() {
         int max = 0;
         boolean noMax = true;
-        for (int i = 0; i < a.length; i++) {
-            if ((a[i] > max) || (noMax)) {
-                max = a[i];
+        for (int j : a) {
+            if ((j > max) || (noMax)) {
+                max = j;
                 noMax = false;
             }
         }
@@ -115,11 +113,11 @@ public class Collection {
      */
     public double averageCount() {
         int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            sum += a[i];
+        for (int j : a) {
+            sum += j;
         }
         if (a.length != 0) {
-            return sum / a.length;
+            return (double)(sum / a.length);
         } else {
             System.out.println("Ошибка! Нет элементов");
             return 0;
